@@ -11,7 +11,6 @@ server
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Access-Control-Allow-Origin',  '*');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With');
-    res.setHeader('Connection', 'close');
 
     return next();
   })
@@ -22,6 +21,7 @@ server
 server.get('/frete', function (req, res, next) {
   correios.getPriceSync(req.params, function (p) {
     res.send(p);
+
     return next();
   });
 });
