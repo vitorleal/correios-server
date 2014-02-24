@@ -26,7 +26,8 @@ server.get('/frete', function (req, res, next) {
 
 
 //Listen
-server.listen(8080, function () {
+var port = process.env.PORT || 4000;
+server.listen(port, function () {
   console.log('%s listening at %s', server.name, server.url);
 });
 
