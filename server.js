@@ -1,7 +1,7 @@
 var restify  = require('restify'),
     Correios = require('node-correios'),
     correios = new Correios(),
-    server   = restify.createServer({ name: 'node-correios', url: 'http://127.0.0.1' });
+    server   = restify.createServer({ name: 'node-correios' });
 
 
 //Config
@@ -11,6 +11,7 @@ server
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Access-Control-Allow-Origin',  '*');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With');
+    res.setHeader('Connection', 'close');
 
     return next();
   })
@@ -19,14 +20,15 @@ server
 
 //Frete route
 server.get('/frete', function (req, res, next) {
-  var price = correios.getPriceSync(req.query, function (price) {
-    res.send(price);
+  correios.getPriceSync(req.params, function (p) {
+    res.send(p);
+    return next();
   });
 });
 
 
 //Listen
-var port = process.env.PORT || 4000;
+var port = process.env.PORT || 5000;
 server.listen(port, function () {
   console.log('%s listening at %s', server.name, server.url);
 });
