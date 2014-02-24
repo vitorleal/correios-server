@@ -12,5 +12,10 @@
   "dependencies": {
     "restify": "~2.6.1",
     "node-correios": "~0.1.0"
+  },
+  {
+  "engines": {
+    "node": "0.10.x"
   }
+}
 }

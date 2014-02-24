@@ -14,7 +14,6 @@ server
 
     return next();
   })
-  //.use(restify.fullResponse())
   .use(restify.queryParser());
 
 
