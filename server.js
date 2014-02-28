@@ -21,7 +21,7 @@ server
 server.get('/frete', function (req, res, next) {
   correios.getPriceSync(req.params, function (p) {
     res.send({
-      respnse: p
+      response: p
     });
 
     return next();
