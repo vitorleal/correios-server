@@ -20,7 +20,9 @@ server
 //Frete route
 server.get('/frete', function (req, res, next) {
   correios.getPriceSync(req.params, function (p) {
-    res.send(p);
+    res.send({
+      respnse: p
+    });
 
     return next();
   });
