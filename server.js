@@ -28,6 +28,7 @@ server.get('/frete', function (req, res, next) {
   });
 });
 
+//Frete prazo route
 server.get('/frete/prazo', function (req, res, next) {
   correios.calcPrecoPrazo(req.params, function (r) {
     res.send({
