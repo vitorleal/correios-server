@@ -19,14 +19,25 @@ server
 
 //Frete route
 server.get('/frete', function (req, res, next) {
-  correios.getPriceSync(req.params, function (p) {
+  correios.calcPreco(req.params, function (r) {
     res.send({
-      response: p
+      response: r
     });
 
     return next();
   });
 });
+
+server.get('/frete/prazo', function (req, res, next) {
+  correios.calcPrecoPrazo(req.params, function (r) {
+    res.send({
+      response: r
+    });
+
+    return next();
+  });
+});
+
 
 
 //Listen
