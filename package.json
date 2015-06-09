@@ -10,8 +10,8 @@
   "author": "Vitor Leal <vitorleal1@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "restify": "~2.6.1",
-    "node-correios": "~0.1.0"
+    "restify": "latest",
+    "node-correios": "latest"
   },
   "engines": {
     "node": "0.10.x",
