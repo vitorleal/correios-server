@@ -5,7 +5,8 @@ var restify  = require('restify'),
 
 
 //Config
-server.use(function crossOrigin(req,res,next) {
+server.use(function crossOrigin(req, res, next) {
+  res.charSet('utf-8');
   res.setHeader('Server', 'node/correios');
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin',  '*');
